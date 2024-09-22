@@ -1,9 +1,18 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 import random
 
 # FastAPI app instance
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can specify the allowed origins here
+    allow_credentials=True,
+    allow_methods=["*"],  # This allows all HTTP methods (POST, GET, etc.)
+    allow_headers=["*"],  # This allows all headers
+)
 
 # Game state
 xState = [0] * 9
@@ -20,7 +29,7 @@ class Move(BaseModel):
 # Utility function to check for a win
 def check_win(state):
     for win in wins:
-        if sum(state[win[0]], state[win[1]], state[win[2]]) == 3:
+        if state[win[0]] + state[win[1]] + state[win[2]] == 3:
             return True
     return False
 

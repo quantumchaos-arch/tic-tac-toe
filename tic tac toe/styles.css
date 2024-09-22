@@ -1,15 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
 
-.container {
+.game-container {
     text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #333;
 }
 
 .board {
@@ -17,29 +28,45 @@ body {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 5px;
-    margin: 20px auto;
+    margin-bottom: 20px;
 }
 
 .cell {
     width: 100px;
     height: 100px;
     background-color: #fff;
-    border: 2px solid #000;
-    font-size: 2rem;
+    border: 2px solid #333;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 36px;
     cursor: pointer;
+    user-select: none;
 }
 
-#message {
-    margin-top: 20px;
-    font-size: 1.5rem;
+.cell:hover {
+    background-color: #f1f1f1;
 }
 
-#restartButton {
-    margin-top: 20px;
+.message {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.restart-button {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
     cursor: pointer;
+}
+
+.restart-button:hover {
+    background-color: #555;
+}
+
+.restart-button:focus {
+    outline: none;
 }
